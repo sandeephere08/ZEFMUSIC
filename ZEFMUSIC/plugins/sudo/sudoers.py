@@ -1,9 +1,9 @@
 from pyrogram import filters
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 
 from ZEFMUSIC import app
 from ZEFMUSIC.misc import SUDOERS
-from ZEFMUSIC.utils.database import add_sudo, remove_sudo
+from ZEFMUSIC.utils.database import add_sudo, remove_sudo, get_sudoers
 from ZEFMUSIC.utils.decorators.language import language
 from ZEFMUSIC.utils.extraction import extract_user
 from ZEFMUSIC.utils.inline import close_markup
@@ -69,3 +69,29 @@ async def sudoers_list(client, message: Message, _):
         await message.reply_text(_["sudo_7"])
     else:
         await message.reply_text(text, reply_markup=close_markup(_))
+
+
+def sudoers_list():
+    sudoers = SUDOERS
+    text = "**Sudo Users List:**\n\n"
+    for user_id in sudoers:
+        try:
+            user = app.get_users(user_id)
+            user_name = user.first_name if not user.last_name else f"{user.first_name} {user.last_name}"
+            text += f"• {user_name} [`{user_id}`]\n"
+        except:
+            text += f"• [`{user_id}`]\n"
+    return text
+
+
+def sudoers_markup():
+    sudoers = SUDOERS
+    markup = InlineKeyboardMarkup()
+    for user_id in sudoers:
+        try:
+            user = app.get_users(user_id)
+            user_name = user.first_name if not user.last_name else f"{user.first_name} {user.last_name}"
+            markup.add(InlineKeyboardButton(text=user_name, user_id=user_id))
+        except:
+            markup.add(InlineKeyboardButton(text=str(user_id), user_id=user_id))
+    return markup

@@ -1,74 +1,58 @@
-━━━━━━━━━━━━━━━━━━━━ 
+# Radharani Music Bot
 
-<h2 align="center">
-     ──「 𝐒𝐘𝐒𝐓𝐔𝐌 𝓧 𝐌𝐔𝐒𝐈𝐂 」──
-</h2>
+A Telegram Music Bot based on Pyrogram and Py-Tgcalls.
 
+## Features
 
-<p align="center">
-  <img src="https://te.legra.ph/file/a97b0a381fa37a82b4213.jpg">
-</p>
+- Play music in voice chats
+- Support for multiple platforms
+- Queue system
+- Skip, pause, resume functionality
+- And more!
 
-<p align="center">
-<a href="https://github.com/WCGKING/stargazers"><img src="https://img.shields.io/github/stars/WCGKING/SYSTUM?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
-<a href="https://github.com/WCGKING/SYSTUM/network/members"> <img src="https://img.shields.io/github/forks/WCGKING/SYSTUM?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
-<a href="https://github.com/WCGKING/SYSTUM/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge" alt="License" /> </a>
-<a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Written%20in-Python-orange?style=for-the-badge&logo=python" alt="Python" /> </a>
-<a href="https://github.com/WCGKING/SYSTUM/commits/WCGKING"> <img src="https://img.shields.io/github/last-commit/WCGKING/SYSTUM?color=blue&logo=github&logoColor=green&style=for-the-badge" /></a>
-</p>
+## Deployment
 
-   <p align="center">
-     <img src="https://graph.org/file/6dbf205e018a9e7db2bad.jpg">
-     </p>
+### Railway Deployment
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/WCGKING/ZEFMUSIC)
 
-<h3 align="center">
-    ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ 」─
-</h3>
+1. Click the Railway button above
+2. Fill in the required environment variables
+3. Deploy!
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/WCGKING/SYSTUM"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+### Manual Deployment
 
-<h3 align="center">
-    ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʟᴏᴄᴀʟ ʜᴏsᴛ/ ᴠᴘs 」─
-</h3>
+1. Clone the repository:
+```bash
+git clone https://github.com/WCGKING/ZEFMUSIC
+cd ZEFMUSIC
+```
 
-- Get your [Necessary Variables](https://github.com/WCGKING/SYSTUM/blob/master/sample.env)
-- Upgrade and Update by :
-`sudo apt-get update && sudo apt-get upgrade -y`
-- Install Ffmpeg by :
-`sudo apt-get install python3-pip ffmpeg -y`
-- Install required packages by :
-`sudo apt-get install python3-pip -y`
-- Install pip by :
-`sudo pip3 install -U pip`
-- Install Node js by :
-`curl -fssL https://deb.nodesource.com/setup_19.x | sudo -E bash - && sudo apt-get install nodejs -y && npm i -g npm`
-- Clone the repository by :
-`git clone https://github.com/WCGKING/SYSTUM && cd SYSTUM`
-- Install requirements by :
-`pip3 install -U -r requirements.txt`
-- Fill your variables in the env by :
-`vi sample.env`<br>
-Press `I` on the keyboard for editing env<br>
-Press `Ctrl+C` when you're done with editing env and `:wq` to save the env<br>
-- Rename the env file by :
-`mv sample.env .env`
-- Install tmux to keep running your bot when you close the terminal by :
-`sudo apt install tmux && tmux`
-- Finally run the bot by :
-`bash start`
-- For getting out from tmux session : Press `Ctrl+b` and then `d`<br>
-━━━━━━━━━━━━━━━━━━━━
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-<h3 align="center">
-    ─「 sᴜᴩᴩᴏʀᴛ 」─
-</h3>
+3. Create a `.env` file with the following variables:
+```env
+API_ID=your_api_id
+API_HASH=your_api_hash
+BOT_TOKEN=your_bot_token
+MONGO_DB_URI=your_mongodb_uri
+LOGGER_ID=your_logger_id
+OWNER_ID=your_owner_id
+```
 
-<p align="center">
-<a href="https://t.me/BRANDED_WORLD"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
-</p>
+4. Run the bot:
+```bash
+python -m ZEFMUSIC
+```
 
-<p align="center">
-<a href="https://t.me/BRANDRD_BOT"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
-</p>
+## Support
 
-- <b> sᴩᴇᴄɪᴀʟ ᴛʜᴀɴᴋs ᴛᴏ [ᴛᴇᴀᴍ ʙʀᴀɴᴅᴇᴅ](https://github.com/WCGKING) ғᴏʀ [ʙʀᴀɴᴅᴇᴅ ᴍᴜsɪᴄ ʙᴏᴛ](https://github.com/WCGKING/SYSTUM). </b>
+- [Support Channel](https://t.me/ZEFRONAssociation)
+- [Support Group](https://t.me/zefronmusic)
+- [Owner](https://t.me/crush_hu_tera)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 

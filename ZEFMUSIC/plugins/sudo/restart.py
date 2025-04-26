@@ -1,7 +1,6 @@
 import asyncio
 import os
 import shutil
-import socket
 from datetime import datetime
 
 import urllib3
@@ -11,7 +10,7 @@ from pyrogram import filters
 
 import config
 from ZEFMUSIC import app
-from ZEFMUSIC.misc import HAPP, SUDOERS, XCB
+from ZEFMUSIC.misc import SUDOERS
 from ZEFMUSIC.utils.database import (
     get_active_chats,
     remove_active_chat,
@@ -21,10 +20,6 @@ from ZEFMUSIC.utils.decorators.language import language
 from ZEFMUSIC.utils.pastebin import KINGBin
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-
-async def is_heroku():
-    return "heroku" in socket.getfqdn()
 
 
 @app.on_message(filters.command(["getlog", "logs", "getlogs"]) & SUDOERS)
@@ -39,9 +34,6 @@ async def log_(client, message, _):
 @app.on_message(filters.command(["update", "gitpull"]) & SUDOERS)
 @language
 async def update_(client, message, _):
-    if await is_heroku():
-        if HAPP is None:
-            return await message.reply_text(_["server_2"])
     response = await message.reply_text(_["server_3"])
     try:
         repo = Repo()
@@ -92,22 +84,9 @@ async def update_(client, message, _):
     except:
         pass
 
-    if await is_heroku():
-        try:
-            os.system(
-                f"{XCB[5]} {XCB[7]} {XCB[9]}{XCB[4]}{XCB[0]*2}{XCB[6]}{XCB[4]}{XCB[8]}{XCB[1]}{XCB[5]}{XCB[2]}{XCB[6]}{XCB[2]}{XCB[3]}{XCB[0]}{XCB[10]}{XCB[2]}{XCB[5]} {XCB[11]}{XCB[4]}{XCB[12]}"
-            )
-            return
-        except Exception as err:
-            await response.edit(f"{nrs.text}\n\n{_['server_9']}")
-            return await app.send_message(
-                chat_id=config.LOGGER_ID,
-                text=_["server_10"].format(err),
-            )
-    else:
-        os.system("pip3 install -r requirements.txt")
-        os.system(f"kill -9 {os.getpid()} && bash start")
-        exit()
+    os.system("pip3 install -r requirements.txt")
+    os.system(f"kill -9 {os.getpid()} && bash start")
+    exit()
 
 
 @app.on_message(filters.command(["restart"]) & SUDOERS)
