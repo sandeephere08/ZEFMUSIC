@@ -1,5 +1,6 @@
 import re
 from os import getenv
+import os
 
 from dotenv import load_dotenv
 from pyrogram import filters
@@ -7,49 +8,56 @@ from pyrogram import filters
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-API_ID = int(getenv("API_ID",))
-API_HASH = getenv("API_HASH",)
+API_ID = int(getenv("API_ID", "11550139"))
+API_HASH = getenv("API_HASH", "75080c7b5c6503ad1309a19e055f1524")
 
 # Get your token from @BotFather on Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN",)
+BOT_TOKEN = getenv("BOT_TOKEN", "7680697190:AAGk1LWo6tlwOopZ10JOLwwHU4Zd_y6IWNQ")
 
 # Get Your bot username
-BOT_USERNAME = getenv("BOT_USERNAME" , "Systumm_music_bot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "radharani_musicbot")
 
 # Get Your repo
-REPO_LINK = getenv("REPO_LINK" , "https://t.me/BRANDED_PAID_CC")
+REPO_LINK = getenv("REPO_LINK" , "https://t.me/radharani_musicbot")
 
 # Don't Add style font 
-BOT_NAME = getenv("BOT_NAME" , "Sytumm")
+BOT_NAME = getenv("BOT_NAME" , "Radharani Music Bot")
 
 # Get your mongo url from cloud.mongodb.com
-MONGO_DB_URI = getenv("MONGO_DB_URI",)
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://rekhasharma13061990:ubEl6ILtVpZr4HLV@cluster0.t86veax.mongodb.net/?retryWrites=true&w=majority")
+# Making MongoDB optional for testing
+# if not MONGO_DB_URI or MONGO_DB_URI == "YOUR_MONGO_URI_HERE":
+#     raise ValueError("Missing or placeholder MONGO_DB_URI. Please set it in .env or config.py")
 
-DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 900))
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "60"))
 
 # Chat id of a group for logging bot's activities
-LOGGER_ID = int(getenv("LOGGER_ID",))
+LOGGER_ID = -1002605198416  # Updated logger ID
+# logger_id_str = getenv("LOGGER_ID", "YOUR_LOGGER_ID_HERE")
+# if not logger_id_str or logger_id_str == "YOUR_LOGGER_ID_HERE":
+#      raise ValueError("Missing or placeholder LOGGER_ID. Please set it in .env or config.py")
+# try:
+#     LOGGER_ID = int(logger_id_str)
+# except ValueError:
+#     raise ValueError("Invalid LOGGER_ID. It must be an integer.")
 
 # Get this value from @CrewMusic_bot on Telegram by /id
-OWNER_ID = int(getenv("OWNER_ID", 6258877205))
+OWNER_ID = int(getenv("OWNER_ID", "7694579428"))  # Owner ID for @crush_hu_tera
 
-## Fill these variables if you're deploying on heroku.
-# Your heroku app name
-HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
-# Get it from http://dashboard.heroku.com/account
-HEROKU_API_KEY = getenv("HEROKU_API_KEY")
+# Sudo users
+SUDO_USERS = list(map(int, os.getenv("SUDO_USERS", "7672710416").split()))
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/WCGKING/SYSTUM",
+    "https://github.com/WCGKING/ZEFMUSIC",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/BRANDRD_BOT")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/BRANDED_WORLD")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ZEFRONAssociation")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/zefronmusic")
 
 # Set this to True if you want the assistant to automatically leave chats after an interval
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
@@ -71,7 +79,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))
 
 
 # Get your pyrogram v2 session from @BRANDEDSTRINGSESSION_BOT on Telegram
-STRING1 = getenv("STRING_SESSION", None)
+STRING1 = getenv("STRING_SESSION", "BQCwPbsAH5Yh_Pb4-L7Rrcv7lA9AhhYsV9J9uR2aa_pnNPwfh-1Ka_VMGhCsNDNKOsLdgoR3aZzaQ9rO24edu9VgwdwoeQXpYHQpu3CreiD_KnNrN7bF5zRGOXVTARBr9jsw3rb3YQiFdsul3iloa7d6fyFrmVoBRgVnAgl3CSoKF3a2tPsiV9JG3azmA11Abavj45oC5dbNKDYQOoon68kZJGomrrcH4XDDLAZ2m2Ej74fGDxNfd8h_aLJ6R8NZhvr70T6r3z06zMTKZiDanhsEtUeBRGjy6O1pAH-SIOWF-NMY0Re6_tXgux07UcBHKEaR6B7GYf2S8a8DTDIPGaiB_W7J-AAAAAHKofbkAA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
@@ -85,12 +93,11 @@ votemode = {}
 autoclean = []
 confirmer = {}
 
-
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://files.catbox.moe/tsfco0.jpg"
+    "START_IMG", "https://te.legra.ph/file/f8ba75bdbb9931cbc8229.jpg"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://files.catbox.moe/tsfco0.jpg"
+    "PING_IMG", "https://te.legra.ph/file/6f99c49bdb4679acad717.jpg"
 )
 PLAYLIST_IMG_URL = "https://te.legra.ph/file/2e2f78610814092d61103.jpg"
 STATS_IMG_URL = "https://te.legra.ph/file/e906c2def5afe8a9b9120.jpg"

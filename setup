@@ -51,7 +51,7 @@ packages(){
 			pprint "SUCCESS.\n\n" "cgreen"
 		else
 			pprint "FAIL.\n\n" "cred"
-			pprint "You need to install ffmpeg manually in order to deploy SYSTUM, exiting...\n" "cblue"
+			pprint "You need to install ffmpeg manually in order to deploy ZEFMUSIC, exiting...\n" "cblue"
 			exit 1
 		fi
 	fi
@@ -82,7 +82,8 @@ installation(){
 }
 
 clear
-pprint "Welcome to SYSTUM Setup Installer\n\n"
+pprint "Welcome to ZEFMUSIC Setup Installer\n\n"
+pprint "Let's setup your ZEFMUSIC Bot! Please follow the steps mentioned below carefully.\nFill the details asked for setting up your bot.\nPress Enter after filling each detail!\n\n" "cgreen"
 pprint "If you see any error during Installation Process, Please refer to these files for logs: "
 pprint "\nFor node js errors , Checkout nodelog.txt"
 pprint "\nFor pypi packages errors , Checkout pypilog.txt"
@@ -94,7 +95,7 @@ update
 packages
 node
 installation
-pprint "\n\n\n\n\nSYSTUM Installation Completed !" "cgreen"
+pprint "\n\n\n\n\nZEFMUSIC Installation Completed !" "cgreen"
 sleep 1
 clear
 
@@ -122,5 +123,18 @@ STRING_SESSION = $string_session
 OWNER_ID = $ownid""" > .env
 clear
 
-pprint "\n\n\nThanks for using SYSTUM installer, your vars have been saved successfully ! \nIf you wanna add more variables add them in your env by : vi .env"
-pprint "\n\nNow you can start the bot by : bash start\n\n"
+pprint "Congrats! You have successfully edited your vars.\nStarting Bot...."
+cd /root/SYSTUM
+sudo chmod 777 * 
+apt install tmux
+tmux
+python3 -m SYSTUM
+pprint "\n\n\n\n\nZEFMUSIC Installation Completed !" "cgreen"
+
+if [ "$mongo_status" = "yes" ]; then
+    pprint "You can now setup your MONGO DB!\nFollow the guide here : https://telegra.ph/How-To-get-Mongodb-URI-04-06\nAfter getting the MONGO DB URI, add it to your env using : nano .env\nPress CTRL+O to save and CTRL+X to exit nano.\nRestart your bot by stopping the current screen using CTRL+C and typing the command : python3 -m SYSTUM"
+fi
+
+pprint "\n\n\nThanks for using ZEFMUSIC installer, your vars have been saved successfully ! \nIf you wanna add more variables add them in your env by : vi .env"
+
+exit
