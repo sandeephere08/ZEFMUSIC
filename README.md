@@ -24,8 +24,8 @@ A feature-rich Telegram music bot for playing music in group voice chats.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ZefMusic.git
-cd ZefMusic
+git clone https://github.com/sandeephere08/ZEFMUSIC.git
+cd ZEFMUSIC
 ```
 
 2. Install the requirements:
@@ -72,6 +72,7 @@ python -m ZEFMUSIC
 - `/skip` - Skip to the next track
 - `/stop` - Stop the playback
 - `/queue` - Show the current queue
+- `/addsudo` - Add a user as sudo (Owner only)
 
 ## License
 
@@ -79,4 +80,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-For support, join our [Telegram Support Group](https://t.me/your_support_group). 
+For support, join our [Telegram Support Group](https://t.me/zefronmusic). 
